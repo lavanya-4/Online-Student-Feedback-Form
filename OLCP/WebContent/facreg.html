@@ -1,0 +1,167 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title></title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script language="javascript">
+function check()
+{
+var name1=new RegExp("^[a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z]+$");
+var name=window.document.f1.Name.value;
+var flag=name1.test(name);
+var name2=new RegExp("^[a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z]+$");
+var name3=window.document.f1.Username.value;
+var flag1=name2.test(name3);
+var password1=new RegExp("^\\w\\w\\\w\\w\\w\\w+$");
+var password=window.document.f1.Password.value;
+var flag2=password1.test(password);
+var password3=window.document.f1.ConfirmPassword.value;
+
+var flag5=password1.test(password3);
+
+var mail1=new RegExp("^[a-z]+[@][a-z]+[.][a-z]+$");
+var email=window.document.f1.Email.value;
+var flag3=mail1.test(email);
+var phno1=new RegExp("^\\d\\d\\d\\d\\d\\d\\d\\d\\d\\d+$");
+var phoneno=window.document.f1.Mobileno.value;
+var flag4=phno1.test(phoneno);
+if(flag==false)
+{
+alert("Invalid name");
+return false;
+}
+else
+if(flag1==false)
+{
+alert("Invalid username");
+return false;
+}
+
+else
+
+if(flag2==false)
+{
+alert("Invalid password");
+return false;
+}
+
+else
+
+if(flag5==false)
+{
+    if(password3!=password)
+    {
+        alert("Password Mismatch");
+    }
+
+return false;
+}
+else
+    if(flag3==false)
+        {
+            alert("Invalid email id");
+            return false;
+        }
+        else
+            if(flag4==false)
+                {
+                    alert("invalid mobile no");
+                    return false;
+                }
+else
+return true;
+}
+</script>
+
+  </head>
+  <body>
+    <form name="f1" onsubmit="return check()" action="addfaculty.jsp" method="POST">
+<a href="login.html"> <img src="homebutton.png" align="right" height="125" width="125"></img></a>
+          <center>
+              <table>
+                  <tr>
+                      <td colspan="2">
+              <h1><b><center>!....REGISTRATION....!</center></b></h1>
+                      </td>
+                  </tr>
+                  <tr><td>
+                  Name:</td>
+                  <td>
+                  <input type="text" name=" Name" value=""></td>
+                  </tr>
+                  <tr><td>
+                  UserName:</td>
+                  <td><input type="text" name="Username" value=""></td>
+                  </tr>
+                  <tr><td>
+
+                  Password:</td><td>
+                  <input type="password" name="Password" value=""></td>
+                  </tr>
+                      <tr><td>Confirm Password:</td>
+                      <td><input type="password" name="ConfirmPassword" value=""></td>
+                      </tr><tr><td>
+                      Email :</td><td>
+                      <input type="text" name="Email" value=""></td>
+                      <tr><td>
+                      Mobile No:</td><td>
+                              <input type="text" name="Mobileno" value=""></td>
+                      </tr>
+                      
+        <tr>
+             <td>College:</td>
+              <td><input type="text" name="College" value=""></td>
+        </tr>
+        <tr><td>Department:</td>
+             <td><select name="Department">
+                                  <option value="cse">Computer Science</option>
+                                  <option value="eee">Electrical& Electronical </option>
+                                  <option value="mech">Mechanical</option>
+                                  <option value="ece">Electronics & Communications</option>
+                                  <option value="civil">Civil</option>
+
+                                  <option value="It">Information Technology</option>
+                   </select></td>
+         </tr>
+         <tr><td>Qualification</td>
+                      <td><select name="qualification">
+                          <option value="BTECH">BTECH</option>
+                          <option value="MTECH" >MTECH</option>
+                          <option value="MCA">MCA</option>
+                          <option value="MBA">MBA</option>
+                          <option value="INTER">INTER</option>
+                          <option value="TENTH">TENTH</option>
+
+                      </select></td>
+        </tr>
+        <tr>
+            <td>Address:</td>
+            <td colspan="2">
+                <textarea rows="10" cols="40"  name="address">
+                </textarea>
+            </td>
+        </tr>
+         <tr><td>Designation</td>
+                      <td><select name="designation">
+                          <option value="Professor">Professor</option>
+                          <option value="AssistantProfessor" >Assistant Professor</option>
+                          <option value="AssociateProfessor">AssociateProfessor</option>
+
+
+                      </select></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Submit" /></td>
+            <td><input type="reset" value="Reset" /></td>
+
+    </table>
+          </center>
+      </form>
+  </body>
+</html>

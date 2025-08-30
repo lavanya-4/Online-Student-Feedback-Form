@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>
+</title>
+      <style type="text/css">
+  span{
+  color:green;
+  }
+  div{
+  color:green;
+  text-align:center;
+  font-size:20px;
+   }
+
+ </style>
+    <script language="javascript">
+        function validname()
+  {
+   var nam=new RegExp("^([a-z]|[A-Z])+$");
+   var name= document.f1.cou.value;
+   if(nam.test(name)&&name!=null)
+   {
+     document.getElementById("1").innerHTML="";
+     return true;
+    }
+     else {
+      document.getElementById("1").innerHTML="Enter CourseName";
+     return false;
+
+      }
+  }
+  
+       
+  
+  function validate()
+   {
+            var r1=validname(document.getElementById("1"));
+          //  var r2=validdes(document.getElementById("2"));
+          
+
+            if(r1)
+{
+    document.f1.action="create.jsp";
+    document.f1.submit();
+   
+}
+
+    
+ }
+
+
+        </script>
+</head>
+<body>
+<form name="f1" id="f1" >
+      
+    <img src="create_logo_v2.png" align="right" width="40%"/>
+<center>
+   <table align="center">
+<tr>
+<td colspan=2><h2><center>COURSE CREATION</center></h2></td>
+</tr>
+
+
+       
+           <tr>
+               <td>Enter Name :<input type="text" name="cou" onkeyup="validname()"/></td>
+           <td><span id="1"/></td></tr>
+   <tr><td></td></tr>
+   <tr><td></td></tr>
+   <tr><td></td></tr>
+           <tr>
+               <td align="center" ><input type="button" value="click" onclick="validate()"/></td></tr>
+    </table>
+   </center>
+</form>
+</body>
+</html>

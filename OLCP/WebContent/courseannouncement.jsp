@@ -1,0 +1,72 @@
+<%-- 
+    Document   : courseannouncement
+    Created on : Feb 8, 2012, 10:35:20 PM
+    Author     : Administrator
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<%@ page import="java.sql.*" %>
+<%@ page import="java.io.*" %>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <img src="new.jpg" align="right"></img>
+        <h1> <center> <font color="blue"><u><i>Latest Courses......</i></u>
+       </font> </center></h1>
+        <table border="1" bgcolor="wheat" align="center">
+            <th><font color="green">Date</font></th>
+            <th><font color="green">Course Name</font></th>
+            
+            
+                        
+                              <%
+
+        ResultSet rs;
+        ResultSet rs1;
+	Connection con1;
+        Connection con2;
+
+
+try{
+
+    String url="jdbc:mysql://localhost:3306/olcp?user=root&password=";
+    Class.forName("com.mysql.jdbc.Driver");
+    	con1=DriverManager.getConnection(url);
+    	Statement st=con1.createStatement();
+           String r1="student",facid;
+           String cname=(String)session.getAttribute("SessionCourse");
+           String q1="SELECT * FROM course WHERE Date <= CURRENT_DATE AND Date>= ( CURRENT_DATE - INTERVAL 10 DAY );";        
+           rs=st.executeQuery(q1);
+               while(rs.next())
+               {
+              
+                                     
+%>
+  <tr>
+
+     <td align="center"><%=rs.getDate(5)%></td>
+     <td align="center"><%=rs.getString(2)%></td>     
+   
+          
+       </tr>
+           
+<% }
+}
+
+ 	catch(Exception e)
+	{
+	out.println(e);
+	//out.println("exception occured");
+}
+                %>
+
+        </table>
+    </body>
+</html>
+
+
+
